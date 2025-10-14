@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Barang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Generate Link</a></li>
+                <li><a href="#">Transaction History</a></li>
+                <li><a href="#">Policy</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+
+        <h2>Form Pemesanan Barang</h2>
+
+        <form action="hasil.html" method="get" enctype="multipart/form-data">
+            <div class="image-box">
+                <img src="foto/fotoproduk.png" alt="Gambar Barang" style="width:150px">
+                <input type="file" id="upload" accept="image/*" onchange="previewImage(event)">
+                <label for="upload" class="upload-btn">Upload Picture</label>
+            </div>
+
+            <label>Title Here:</label>
+            <input type="text" name="title" placeholder="Masukkan Nama Barang" required>
+
+            <label>Description:</label>
+            <textarea name="desc" placeholder="Deskripsi Barang" required></textarea>
+
+            <label>Account Number:</label>
+            <input type="text" name="account" placeholder="123-456-789" required>
+
+            <label>Item Name:</label>
+            <input type="text" name="item" placeholder="Misal: Macbook Air 8300" required>
+
+            <label>Condition:</label>
+            <input type="text" name="condition" placeholder="New / Used" required>
+
+            <label>Transaction:</label>
+            <select name="transaction">
+                <option value="1">1 Item</option>
+                <option value="2">2 Items</option>
+                <option value="3">3 Items</option>
+            </select>
+
+            <label><input type="checkbox" name="sendPhone" value="Yes"> Send to Mobile Phone</label>
+            <input type="text" name="phone" placeholder="Masukkan Nomor HP">
+
+            <label><input type="checkbox" name="sendEmail" value="Yes"> Send to Email</label>
+            <input type="email" name="email" placeholder="Masukkan Email">
+
+            <button type="submit" class="btn-green">Generate Now Link</button>
+        </form>
+    </div>
+
+    <script>
+        // Preview gambar saat diupload
+        function previewImage(event) {
+            const img = document.getElementById("preview");
+            img.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>
